@@ -3,14 +3,14 @@ import {
   View,
   StyleSheet,
   ActivityIndicator,
-  WebView,
   Platform,
   Text,
 } from 'react-native';
+import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
 // import Button from './Button';
 // import AssetUtils from 'expo-asset-utils'
-const asset = require('./assets/dist/index.html');
+const asset = Platform.OS === 'ios' ? require('./assets/dist/index.html') : {uri: "file:///android_asset/leaflet/index.html"};
 
 const util = require('util');
 const isValidCoordinates = require('is-valid-coordinates');
